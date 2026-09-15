@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Box Model</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body{
+            background-color: peachpuff;
+        }
+        div{
+            background-color: aqua;
+            height: 150px;
+            padding: 5px;
+            width: 100px;
+            box-sizing: border-box;
+
+            margin: 20px;
+        }
+        #second{
+            border:solid 20px blue;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-
-
 <body>
-
-
-
-
-
+   <div>This is a div</div>
+   <div id="second">div2</div>
 </body>
 </html>
