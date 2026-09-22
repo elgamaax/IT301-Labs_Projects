@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Model</title>
+    <title>Flex Box</title>
     <style>
-        *{
-            box-sizing: border-box;
-            margin: 0;
+        #flexParent{
+        border: solid 1px;
+        display: flex;
+        align-items: flex-end;
         }
-        body{
-            background-color: peachpuff;
-        }
-        div{
-            background-color: aqua;
-            height: 150px;
-            padding: 5px;
-            width: 100px;
-            box-sizing: border-box;
 
-            margin: 20px;
+        div div {
+            background-color: aquamarine;
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
         }
-        #second{
-            border:solid 20px blue;
-            margin-top: 10px;
+
+        #child2{
+            flex-shrink: 3;
         }
     </style>
 </head>
 <body>
-   <div>This is a div</div>
-   <div id="second">div2</div>
+   <div id="flexParent">
+       <div id="child1">Child 1</div>
+       <div id="child2">Child 2</div>
+       <div id="child3">Child 3</div>
+   </div>
 </body>
 </html>
