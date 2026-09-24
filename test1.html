@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Box</title>
-    <style>
-        #flexParent{
-        border: solid 1px;
-        display: flex;
-        align-items: flex-end;
-        }
-
-        div div {
-            background-color: aquamarine;
-            border: 1px solid;
-            width: 100px;
-            height: 100px;
-        }
-
-        #child2{
-            flex-shrink: 3;
-        }
-    </style>
+    <title>Transform</title>
+<style>
+ .box{
+        width: 50px;
+        height: 50px;
+        background-color: brown;
+        display: inline-block;
+    }
+    .box2{
+        background-color: blueviolet;
+        transform: skew(20deg);
+    }
+</style>
 </head>
 <body>
-   <div id="flexParent">
-       <div id="child1">Child 1</div>
-       <div id="child2">Child 2</div>
-       <div id="child3">Child 3</div>
-   </div>
+    <div class="box"></div>
+    <div class="box box2"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    </div>
 </body>
 </html>
