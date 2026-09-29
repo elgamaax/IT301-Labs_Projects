@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transform</title>
+    <title>Media Query</title>
 <style>
- .box{
-        width: 50px;
-        height: 50px;
-        background-color: brown;
-        display: inline-block;
-    }
-    .box2{
-        background-color: blueviolet;
-        transform: skew(20deg);
+    @media (min-width: 800px)
+        ul{display: flex;
+        justify-content: space-between;
     }
 </style>
 </head>
 <body>
-    <div class="box"></div>
-    <div class="box box2"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    </div>
+    <header>
+        <h1>Media Query</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <p>This is a simple media query example.</p>
+    </header>
 </body>
 </html>
