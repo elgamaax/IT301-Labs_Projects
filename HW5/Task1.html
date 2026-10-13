@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Grid</title>
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #301731;
+}
+
+.pricing-container {
+    background-color: #301731;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 45px;
+    padding: 20px 40px;
+    padding-top: 110px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+.plan {
+    background-color: #cfa3d6;
+    flex: 1;
+    min-width: 0;
+    padding: 20px 25px;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.plan h2 {
+    font-size: 18px;
+    margin: 0 0 15px;
+    color: black;
+}
+
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 45px;
+    width: 100%;
+}
+
+.plan li {
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 4px 0;
+    border-bottom: 1px solid #65476b;
+}
+
+.plan li:last-child {
+    border-bottom: none;
+}
+
+
+.plan button {
+    margin-top: auto;
+    padding: 7px 10px;
+    background-color: #bd75c8;
+    border: 1px solid #8b3e98;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    border-radius: 4px;
+}
+
+
+.economy {
+    background-color: #4cff3d;
+}
+
+.preferred {
+    background-color: #ffff39;
+}
+
+.premium {
+    background-color: #ffbf2f;
+}
+
+
+.phone-banner {
+    position: fixed;
+    bottom: 25px;
+    right: -45px;
+    background-color: #ffbf2f;
+    color: black;
+    padding: 8px 45px;
+    transform: rotate(-45deg);
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+@media screen and (max-width: 750px) {
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px 30px;
+        gap: 25px;
+    }
+
+    .plan {
+        width: 100%;
+        max-width: 350px;
+        flex: none;
+    }
+}
+
+</style>
+
+<body>
+
+    <main class="pricing-container">
+
+        <!-- Economy -->
+        <section class="plan">
+            <div class="badge economy">
+                <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
+            </div>
+
+            <h2>Economy</h2>
+
+            <ul>
+                <li>Amet quisquam unde?</li>
+                <li>Dolor quam facilis.</li>
+                <li>Elit voluptas qui.</li>
+                <li>Amet veniam sapiente.</li>
+                <li>Adipisicing nobis at?</li>
+            </ul>
+
+            <button type="button">Save Money</button>
+        </section>
+
+        <!-- Preferred -->
+        <section class="plan">
+            <div class="badge preferred">
+                <i class="fas fa-medal" aria-hidden="true"></i>
+            </div>
+
+            <h2>Preferred</h2>
+
+            <ul>
+                <li>Elit vel sit!</li>
+                <li>Lorem maiores iusto?</li>
+                <li>Adipisicing reiciendis impedit.</li>
+                <li>Ipsum quas ea!</li>
+                <li>Elit maiores similique</li>
+                <li>Ipsum iusto excepturi?</li>
+                <li>Lorem rem porro?</li>
+            </ul>
+
+            <button type="button">Rival the Competition</button>
+        </section>
+
+        <!-- Premium -->
+        <section class="plan">
+            <div class="badge premium">
+                <i class="fas fa-hat-wizard" aria-hidden="true"></i>
+            </div>
+
+            <h2>Premium</h2>
+
+            <ul>
+                <li>Elit facilis corrupti</li>
+                <li>Amet asperiores consequuntur</li>
+                <li>Dolor praesentium unde</li>
+                <li>Lorem dicta blanditiis!</li>
+                <li>Consectetur amet praesentium</li>
+                <li>Dolor veniam recusandae?</li>
+                <li>Consectetur sequi quidem.</li>
+                <li>Dolor perferendis architecto</li>
+                <li>Sit error vel.</li>
+                <li>Sit vel exercitationem</li>
+                <li>Elit animi eveniet.</li>
+                <li>Consectetur velit sequi.</li>
+            </ul>
+
+            <button type="button">Become a Power User</button>
+        </section>
+
+    </main>
+
+    <!-- Fixed phone banner -->
+    <div class="phone-banner">
+        CALL 1-800-555-5555
+    </div>
+
+</body>
+</html>
