@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.value 2nd function</title>
+</head>
+<body>
+    <form action="#">
+        <label for="grade">What is your grade?</label>
+        <input type="number" id="grade"> <br><br>
+        <button id="bttn" type="button">Submit</button>
+    </form>
+    <p id="result"></p>
+    <p> Select your color: </p>
+        <input type="radio" value="red" name="color"> Red<br><br>
+        <input type="radio" value="blue" name="color"> Blue<br><br>
+        <input type="radio" value="green" name="color"> Green<br><br>
+        <button id="select" type="button">Submit Color</button>
+    <script>
+        const result=document.getElementById("result");
+
+        document.getElementById("bttn").addEventListener("click", function() {
+            console.log(typeof grade.value);
+            result.textContent = Number(grade.value) + 5;
+        })
+
+        document.getElementById("select").addEventListener("click", function() {
+            const myColor = document.querySelector('input[name="color"]:checked');
+            console.log(myColor.value);
+        })
+
+        //functions
+        const sub = function(a, b) {return a - b;}
+        console.log(sub(5, 2));
+
+        const greet = function(name) {console.log(`Welcome ${name}`);}
+        greet('mike');
+        const greet1 = greet;
+
+        greet1('Amy');
+
+    </script>
+</body>
+</html>
