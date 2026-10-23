@@ -1,0 +1,563 @@
+
+/* Main website styles */
+
+body {
+    margin: 0;
+    background-color: #EAF4FB;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Headings */
+
+h1, h2 {
+    font-family: Georgia, serif;
+}
+
+
+/* Main header */
+
+header {
+    background-color: #163A5F;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+
+/* Navigation links */
+
+nav {
+    background-color: #2471A3;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main content area */
+
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0 16px;
+}
+
+
+/* Content sections */
+
+main > section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+}
+
+
+/* Images */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Basic tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #D5E1E9;
+}
+
+th {
+    background-color: #163A5F;
+    color: white;
+}
+
+
+/* Header for the soccer pages */
+
+.site-header {
+    background-color: #163A5F;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.site-header h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 0 0 12px;
+}
+
+.site-header p {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+/* Navigation bar for the soccer pages */
+/* Sticky positioning keeps the navigation at the top */
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2471A3;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    margin: 0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+    background-color: #163A5F;
+}
+
+
+/* Main content for the soccer pages */
+
+.page-content {
+    max-width: 1100px;
+    margin: 28px auto 45px;
+    padding: 0 18px;
+}
+
+.page-content .panel {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+}
+
+.page-content h2 {
+    font-family: Georgia, serif;
+    margin: 0 0 18px;
+}
+
+.page-content h3 {
+    margin-top: 0;
+}
+
+.page-content p {
+    line-height: 1.6;
+}
+
+.page-content a {
+    color: #145c97;
+}
+
+
+/* Footer */
+
+footer,
+.site-footer {
+    background-color: #163A5F;
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* Premier League page */
+/* Uses CSS Grid to organize the fact cards */
+
+.league-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.fact-card {
+    background-color: #EAF4FB;
+    border: 1px solid #C6DAE9;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+}
+
+.fact-card h3 {
+    color: #163A5F;
+    font-size: 23px;
+}
+
+
+/* Points system boxes */
+
+.result-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.result-boxes p {
+    background-color: #EAF4FB;
+    border-left: 4px solid #2471A3;
+    padding: 12px 18px;
+    margin: 0;
+}
+
+
+/* Premier League team list */
+
+.team-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 28px;
+    padding-left: 25px;
+}
+
+
+/* Champions League page */
+
+.champions-page .intro-panel {
+    border-top: 5px solid #2471A3;
+}
+
+
+/* Champions League qualification information */
+
+.champions-highlight {
+    background-color: #EAF4FB;
+    padding: 14px 22px;
+    border-radius: 8px;
+}
+
+.champions-highlight p {
+    margin: 8px 0;
+}
+
+
+/* Champions League tournament stages */
+/* Relative and absolute positioning place the stage numbers */
+
+.stage-list {
+    list-style: none;
+    counter-reset: stages;
+    padding-left: 0;
+}
+
+.stage-list li {
+    counter-increment: stages;
+    position: relative;
+    background-color: #EAF4FB;
+    border-left: 5px solid #2471A3;
+    border-radius: 8px;
+    margin: 0 0 14px 30px;
+    padding: 18px 20px 18px 40px;
+}
+
+.stage-list li::before {
+    content: counter(stages);
+    position: absolute;
+    left: -25px;
+    top: 18px;
+    background-color: #163A5F;
+    color: white;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stage-list p {
+    margin-bottom: 0;
+}
+
+
+/* Bottom sections on the Champions League page */
+
+.champions-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.page-content > .champions-bottom {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+
+/* International Soccer page */
+/* World Cup information and statistics */
+
+.world-cup-panel {
+    border-top: 5px solid #2471A3;
+}
+
+.world-cup-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.world-cup-facts div {
+    background-color: #EAF4FB;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 8px;
+}
+
+.world-cup-facts strong {
+    display: block;
+    color: #163A5F;
+    font-size: 34px;
+}
+
+.world-cup-facts span {
+    display: block;
+    margin-top: 5px;
+}
+
+
+/* Famous national teams */
+
+.country-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.country-grid li {
+    padding: 16px;
+    background-color: #EAF4FB;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* International tournament table */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.soccer-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.soccer-table th {
+    background-color: #163A5F;
+    color: white;
+    text-align: left;
+    padding: 14px;
+}
+
+.soccer-table td {
+    padding: 13px;
+    border-bottom: 1px solid #D5E1E9;
+}
+
+.soccer-table tr:nth-child(odd) {
+    background-color: #EAF4FB;
+}
+
+
+/* Players and Clubs page */
+/* Grid used to display the player cards */
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.player-card {
+    background-color: #EAF4FB;
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 4px solid #2471A3;
+}
+
+.player-card h3 {
+    color: #163A5F;
+}
+
+
+/* Popular soccer club list */
+
+.club-list {
+    list-style: none;
+    padding: 0;
+}
+
+.club-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px 10px;
+    border-bottom: 1px solid #D5E1E9;
+}
+
+.club-list span {
+    color: #456;
+}
+
+
+/* Favorite player and club form */
+
+.support-panel {
+    border-top: 5px solid #2471A3;
+}
+
+#support-form {
+    display: grid;
+    gap: 10px;
+    max-width: 430px;
+}
+
+#support-form label {
+    font-weight: bold;
+}
+
+#support-form input {
+    padding: 12px;
+    border: 1px solid #AABAC7;
+    border-radius: 5px;
+    font: inherit;
+}
+
+#support-form button {
+    background-color: #2471A3;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+}
+
+#support-form button:hover {
+    background-color: #163A5F;
+}
+
+
+/* Message displayed after the form is submitted */
+
+#choice-message:not(:empty) {
+    background-color: #EAF4FB;
+    border-left: 4px solid #2471A3;
+    padding: 14px;
+    border-radius: 5px;
+}
+
+
+/* Media query for smaller screens */
+/* Changes the layout so the website works on phones */
+
+@media (max-width: 650px) {
+
+    /* Smaller header */
+
+    .site-header {
+        padding: 34px 15px;
+    }
+
+    .site-header h1 {
+        font-size: 33px;
+    }
+
+    .site-header p {
+        font-size: 17px;
+    }
+
+    /* Navigation changes to two columns */
+
+    .site-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: static;
+    }
+
+    .site-nav a {
+        text-align: center;
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    .site-nav a:last-child {
+        grid-column: 1 / -1;
+    }
+
+    /* Smaller content spacing */
+
+    .page-content {
+        padding: 0 12px;
+    }
+
+    .page-content .panel {
+        padding: 20px;
+    }
+
+    /* Cards change to one column */
+
+    .league-facts,
+    .world-cup-facts,
+    .player-grid,
+    .champions-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    /* Lists change to two columns */
+
+    .country-grid,
+    .team-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Homepage mobile spacing */
+
+    main {
+        padding: 0 12px;
+    }
+
+    main > section {
+        padding: 20px;
+    }
+
+    /* Homepage navigation links wrap */
+
+    nav:not(.site-nav) a {
+        display: inline-block;
+        margin: 6px;
+    }
+}

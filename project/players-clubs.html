@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players & Clubs | World Soccer Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="players-page">
+
+    <!-- Page header -->
+    <header class="site-header">
+        <h1>Players & Clubs</h1>
+        <p>Learn about famous soccer players and teams</p>
+    </header>
+
+    <!-- Navigation links -->
+    <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="premier-league.html">Premier League</a>
+        <a href="champions-league.html">Champions League</a>
+        <a href="international.html">International Soccer</a>
+        <a href="players-clubs.html" aria-current="page">Players & Clubs</a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="page-content">
+
+        <section class="panel">
+            <h2>Famous Soccer Players</h2>
+            <p>Soccer has many talented players who are known around the world. Some players are famous for scoring goals, while others are known for their passing, speed, and dribbling skills.</p>
+        </section>
+
+        <!-- Information about famous players -->
+        <section class="panel">
+            <h2>Players You Should Know</h2>
+
+            <div class="player-grid">
+
+                <div class="player-card">
+                    <h3>Lionel Messi</h3>
+                    <p><strong>Country:</strong> Argentina</p>
+                    <p>Messi is known for his dribbling, passing, and goal scoring. He helped Argentina win the 2022 FIFA World Cup.</p>
+                </div>
+
+                <div class="player-card">
+                    <h3>Cristiano Ronaldo</h3>
+                    <p><strong>Country:</strong> Portugal</p>
+                    <p>Ronaldo is known for his goal scoring and athletic ability. He has won multiple Champions League titles.</p>
+                </div>
+
+                <div class="player-card">
+                    <h3>Kylian Mbappe</h3>
+                    <p><strong>Country:</strong> France</p>
+                    <p>Mbappe is known for his incredible speed and finishing ability. He helped France win the 2018 World Cup.</p>
+                </div>
+
+                <div class="player-card">
+                    <h3>Mohamed Salah</h3>
+                    <p><strong>Country:</strong> Egypt</p>
+                    <p>Salah is known for his speed, dribbling, and goal scoring. He became famous for his success with Liverpool.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- List of popular soccer clubs -->
+        <section class="panel">
+            <h2>Popular Soccer Clubs</h2>
+            <p>Soccer clubs compete in different leagues and tournaments around the world.</p>
+
+            <ul class="club-list">
+                <li><strong>Real Madrid</strong><span>Spain</span></li>
+                <li><strong>FC Barcelona</strong><span>Spain</span></li>
+                <li><strong>Manchester United</strong><span>England</span></li>
+                <li><strong>Liverpool</strong><span>England</span></li>
+                <li><strong>Bayern Munich</strong><span>Germany</span></li>
+            </ul>
+        </section>
+
+        <!-- Form for favorite player and club -->
+        <section class="panel support-panel">
+            <h2>Who Do You Support?</h2>
+            <p>Share your favorite soccer player and club below!</p>
+
+            <form id="support-form">
+                <label for="favorite-player">Favorite Player</label>
+                <input type="text" id="favorite-player" required>
+
+                <label for="favorite-club">Favorite Club</label>
+                <input type="text" id="favorite-club" required>
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <p id="choice-message"></p>
+        </section>
+
+        <section class="panel">
+            <h2>Learn More</h2>
+            <p>Visit FIFA's official website to learn more about soccer players and clubs.</p>
+
+            <a href="https://www.fifa.com/" target="_blank">Official FIFA Website</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>World Soccer Guide</p>
+    </footer>
+
+    <script>
+        // Displays a message when someone submits the form
+        document.getElementById("support-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Gets the player's and club's names
+            var player = document.getElementById("favorite-player").value.trim();
+            var club = document.getElementById("favorite-club").value.trim();
+
+            // Checks the answers and displays a response
+            if (player === "" || club === "") {
+                document.getElementById("choice-message").textContent =
+                    "Please enter a player and a club.";
+            } else {
+                document.getElementById("choice-message").textContent =
+                    "That's a great choice! " + player + " and " + club + " are great picks!";
+            }
+        });
+    </script>
+
+</body>
+</html>
