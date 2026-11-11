@@ -37,13 +37,10 @@
     <button type="submit">Submit</button>
 </form>
 
-<p id="result"></p>
-
 <script>
     const form = document.getElementById('myform');
     const password = document.getElementById('password');
     const passwordRules = document.getElementById('passwordRules');
-    const result = document.getElementById('result');
 
     const lengthRule = document.getElementById('length');
     const specialRule = document.getElementById('special');
@@ -51,9 +48,7 @@
 
     form.addEventListener('submit', (event)=>{
         event.preventDefault();
-        result.textContent = 'Form submitted successfully!';
-        result.classList.add('valid');
-        console.log('form submitted successfully');
+        window.location.href = "success.html";
     });
 
     password.addEventListener('input', ()=>{
