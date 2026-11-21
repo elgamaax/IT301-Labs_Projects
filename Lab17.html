@@ -12,6 +12,8 @@
 
     <h1>Student Database</h1>
 
+    <p id="message">Checking login...</p>
+
     <label for="name">Student Name:</label>
     <input type="text" id="name">
 
@@ -22,42 +24,77 @@
 
     <br><br>
 
-    <button type="button" id="push">Push Data</button>
-    <button type="button" id="get">Get Data</button>
+    <button type="button" id="push" disabled>Push Data</button>
+    <button type="button" id="get" disabled>Get Data</button>
 
     <!-- Firebase libraries -->
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 
-
     <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyCnalyCtwA5z_fejen8G3H3Cg5civNZMBg",
-            authDomain: "myproject-35aa3.firebaseapp.com",
-            projectId: "myproject-35aa3",
-            storageBucket: "myproject-35aa3.firebasestorage.app",
-            messagingSenderId: "266994519476",
-            appId: "1:266994519476:web:e85a0a8cb28dcb585436e1"
+            apiKey: "AIzaSyANNYsY93OcKSVK2zmzwLZbE4dsd6Dkp5o",
+            authDomain: "studentdatabase-cdffb.firebaseapp.com",
+            projectId: "studentdatabase-cdffb",
+            storageBucket: "studentdatabase-cdffb.firebasestorage.app",
+            messagingSenderId: "186596925683",
+            appId: "1:186596925683:web:2044f5744aeb41bea25786",
+            measurementId: "G-P9H09ZYXS6"
         };
 
-        // Connect to Firebase
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        // Connect to Firestore
+        // Connect to Firestore and Authentication
         const db = firebase.firestore();
         const auth = firebase.auth();
-
 
         // Get HTML elements
         const name = document.getElementById('name');
         const grade = document.getElementById('grade');
         const push = document.getElementById('push');
         const get = document.getElementById('get');
+        const message = document.getElementById('message');
+
+        let isFaculty = false;
+
+        // Check if user is logged in as faculty
+        auth.onAuthStateChanged(async (user) => {
+            isFaculty = false;
+            push.disabled = true;
+            get.disabled = true;
+
+            if (!user) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            try {
+                const userDoc = await db.collection('users').doc(user.uid).get();
+
+                if (userDoc.exists && userDoc.data().role === "faculty") {
+                    isFaculty = true;
+                    push.disabled = false;
+                    get.disabled = false;
+                    message.textContent = "Logged in as faculty.";
+                } else {
+                    message.textContent = "Faculty access required.";
+                }
+
+            } catch (error) {
+                console.error("Login error:", error.message);
+                message.textContent = "Could not verify faculty access.";
+            }
+        });
 
         // Save data to Firestore
         push.addEventListener('click', async function (event) {
+            if (!isFaculty) {
+                return;
+            }
+
             try {
                 const docRef = await db.collection('students').add({
                     name: name.value,
@@ -68,13 +105,17 @@
                 alert('Your data saved successfully');
 
             } catch (error) {
-                console.error("Firebase error:" + error.message);
+                console.error("Firebase error: " + error.message);
                 alert("Could not save your data.");
             }
         });
 
         // Retrieve data from Firestore
         get.addEventListener('click', async function (event) {
+            if (!isFaculty) {
+                return;
+            }
+
             try {
                 const snapshot = await db.collection('students').get();
 
@@ -85,7 +126,7 @@ Pass: ${doc.data().pass}`);
                 });
 
             } catch (error) {
-                console.error("Firebase error:" + error.message);
+                console.error("Firebase error: " + error.message);
                 alert("Could not retrieve your data.");
             }
         });
