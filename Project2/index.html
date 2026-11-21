@@ -10,42 +10,58 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f6f4;
             margin: 0;
-            padding: 20px;
+            background-color: #f8f7fa;
             color: #333;
         }
 
         header {
+            background-color: #450084;
+            color: white;
+            padding: 30px;
             text-align: center;
-            padding: 20px;
+            border-bottom: 5px solid #cbb677;
         }
 
-        h1 {
-            color: #2e6b4e;
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            color: #eee;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        .dashboard {
+            display: flex;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .left {
+            flex: 1;
+        }
+
+        .right {
+            flex: 1;
         }
 
         h2 {
-            color: #333;
-        }
-
-        section {
-            background-color: white;
-            max-width: 850px;
-            margin: 20px auto;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px #dedede;
-        }
-
-        .summary {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-        }
-
-        .summary p {
-            font-size: 18px;
+            font-size: 21px;
+            color: #450084;
+            border-bottom: 2px solid #cbb677;
+            padding-bottom: 10px;
         }
 
         label {
@@ -57,31 +73,50 @@
         input, select {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #bbb;
             box-sizing: border-box;
         }
 
         button {
-            background-color: #2e6b4e;
+            background-color: #450084;
             color: white;
             border: none;
             padding: 10px 15px;
             margin-top: 15px;
-            border-radius: 5px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #205039;
+            background-color: #6b2fa0;
         }
 
-        .delete {
-            background-color: #c74b4b;
+        .clear {
+            background-color: #ddd;
+            color: #333;
         }
 
-        .delete:hover {
-            background-color: #a83232;
+        .clear:hover {
+            background-color: #bbb;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 10px;
+        }
+
+        .stat h3 {
+            font-size: 28px;
+            margin: 5px;
+            color: #450084;
+        }
+
+        .stat p {
+            font-size: 14px;
         }
 
         .table-container {
@@ -91,27 +126,42 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+        }
+
+        th {
+            background-color: #450084;
+            color: white;
         }
 
         th, td {
             padding: 12px;
-            border-bottom: 1px solid #ddd;
             text-align: left;
-        }
-
-        th {
-            background-color: #e3efe7;
+            border-bottom: 1px solid #ddd;
         }
 
         td input {
             width: auto;
         }
 
+        .delete {
+            background-color: #c74b4b;
+            color: white;
+        }
+
+        .delete:hover {
+            background-color: #a83232;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
             color: #777;
+        }
+
+        @media (max-width: 700px) {
+            .dashboard {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -120,101 +170,131 @@
 
     <header>
         <h1>Student Task Manager</h1>
-        <p>Stay organized and keep track of your assignments.</p>
+        <p>Manage your assignments and stay on track.</p>
     </header>
 
-    <section>
-        <h2>Assignment Summary</h2>
+    <main>
 
-        <div class="summary">
-            <p>Total: <strong id="total">1</strong></p>
-            <p>Completed: <strong id="completed">0</strong></p>
-            <p>Remaining: <strong id="remaining">1</strong></p>
+        <div class="dashboard">
+
+            <div class="left">
+
+                <section class="box">
+                    <h2>Add Assignment</h2>
+
+                    <form id="assignmentForm">
+
+                        <label for="name">Assignment Name:</label>
+                        <input type="text" id="name"
+                               placeholder="Assignment name" required>
+
+                        <label for="course">Class:</label>
+                        <input type="text" id="course"
+                               placeholder="Class name" required>
+
+                        <label for="date">Due Date:</label>
+                        <input type="date" id="date" required>
+
+                        <label for="priority">Priority:</label>
+                        <select id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+
+                        <button type="button">Add Assignment</button>
+                        <button type="reset" class="clear">Clear</button>
+
+                    </form>
+
+                    <p id="message"></p>
+                </section>
+
+            </div>
+
+            <div class="right">
+
+                <section class="box">
+                    <h2>Overview</h2>
+
+                    <div class="stats">
+
+                        <div class="stat">
+                            <h3 id="total">1</h3>
+                            <p>Total</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3 id="completed">0</h3>
+                            <p>Completed</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3 id="remaining">1</h3>
+                            <p>Remaining</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="box">
+                    <h2>Find Assignments</h2>
+
+                    <label for="search">Search:</label>
+                    <input type="text" id="search"
+                           placeholder="Search assignments">
+
+                    <label for="filter">Filter by Status:</label>
+                    <select id="filter">
+                        <option value="all">All Assignments</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </section>
+
+            </div>
+
         </div>
-    </section>
 
-    <section>
-        <h2>Add New Assignment</h2>
+        <section class="box">
+            <h2>My Assignments</h2>
 
-        <form id="assignmentForm">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Assignment</th>
+                            <th>Class</th>
+                            <th>Due Date</th>
+                            <th>Priority</th>
+                            <th>Done</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-            <label for="name">Assignment Name:</label>
-            <input type="text" id="name"
-                   placeholder="Enter assignment name" required>
+                    <tbody id="assignmentList">
+                        <tr>
+                            <td>Homework 1</td>
+                            <td>IT301</td>
+                            <td>2026-11-25</td>
+                            <td>High</td>
+                            <td>
+                                <input type="checkbox"
+                                       aria-label="Complete Homework 1">
+                            </td>
+                            <td>
+                                <button type="button">Edit</button>
+                                <button type="button"
+                                        class="delete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <label for="course">Class:</label>
-            <input type="text" id="course"
-                   placeholder="Enter class name" required>
+        </section>
 
-            <label for="date">Due Date:</label>
-            <input type="date" id="date" required>
-
-            <label for="priority">Priority:</label>
-            <select id="priority">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-
-            <button type="button">Add Assignment</button>
-            <button type="reset">Clear</button>
-
-        </form>
-
-        <p id="message"></p>
-    </section>
-
-    <section>
-        <h2>Search Assignments</h2>
-
-        <label for="search">Search:</label>
-        <input type="text" id="search"
-               placeholder="Search assignments">
-
-        <label for="filter">Filter by Status:</label>
-        <select id="filter">
-            <option value="all">All Assignments</option>
-            <option value="pending">Pending</option>
-            <option value="completed">Completed</option>
-        </select>
-    </section>
-
-    <section>
-        <h2>My Assignments</h2>
-
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Assignment</th>
-                        <th>Class</th>
-                        <th>Due Date</th>
-                        <th>Priority</th>
-                        <th>Done</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody id="assignmentList">
-                    <tr>
-                        <td>Homework 1</td>
-                        <td>IT301</td>
-                        <td>2026-11-25</td>
-                        <td>High</td>
-                        <td>
-                            <input type="checkbox"
-                                   aria-label="Complete Homework 1">
-                        </td>
-                        <td>
-                            <button type="button">Edit</button>
-                            <button type="button"
-                                    class="delete">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+    </main>
 
     <footer>
         <p>Student Task Manager</p>
